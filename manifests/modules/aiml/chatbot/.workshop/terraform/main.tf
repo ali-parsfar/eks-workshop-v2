@@ -55,7 +55,7 @@ module "eks_blueprints_addons" {
   karpenter_sqs = {
     queue_name = "${var.addon_context.eks_cluster_id}-karpenter"
   }
-  
+
   cluster_name      = var.addon_context.eks_cluster_id
   cluster_endpoint  = var.addon_context.aws_eks_cluster_endpoint
   cluster_version   = var.eks_cluster_version
