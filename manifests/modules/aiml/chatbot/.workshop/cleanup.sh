@@ -8,14 +8,14 @@ logmessage "Deleting Gradio-UI Components..."
 
 kubectl delete -k /eks-workshop/manifests/modules/aiml/chatbot/gradio --ignore-not-found=true
 
-logmessage "Deleting Llama2 pods..."
+# logmessage "Deleting Llama2 pods..."
 
-kubectl delete -f https://raw.githubusercontent.com/aws-neuron/aws-neuron-sdk/v2.19.1/src/k8/k8s-neuron-device-plugin-rbac.yml --ignore-not-found
-kubectl delete -f https://raw.githubusercontent.com/aws-neuron/aws-neuron-sdk/v2.19.1/src/k8/k8s-neuron-device-plugin.yml --ignore-not-found
+# kubectl delete -k /eks-workshop/manifests/modules/aiml/chatbot/ray-service-llama2-chatbot --ignore-not-found=true
 
 logmessage "Deleting Neuron Device Plugin..."
 
-kubectl delete -k /eks-workshop/manifests/modules/aiml/chatbot/neuron-device-plugin --ignore-not-found=true
+kubectl delete -f https://raw.githubusercontent.com/aws-neuron/aws-neuron-sdk/v2.19.1/src/k8/k8s-neuron-device-plugin-rbac.yml --ignore-not-found
+kubectl delete -f https://raw.githubusercontent.com/aws-neuron/aws-neuron-sdk/v2.19.1/src/k8/k8s-neuron-device-plugin.yml --ignore-not-found
 
 logmessage "Un-installing kuberay operator..."
 
