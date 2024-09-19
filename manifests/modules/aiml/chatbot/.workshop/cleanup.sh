@@ -10,7 +10,7 @@ kubectl delete -k /eks-workshop/manifests/modules/aiml/chatbot/gradio --ignore-n
 
 logmessage "Deleting Llama2 pods..."
 
-kubectl delete -k /eks-workshop/manifests/modules/aiml/chatbot/ray-service-llama2-chatbot --ignore-not-found=true
+kubectl delete -k /eks-workshop/manifests/modules/aiml/chatbot/ray-service-llama2-chatbot --ignore-not-found=true > /dev/null
 
 logmessage "Deleting Neuron Device Plugin..."
 
