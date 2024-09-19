@@ -6,11 +6,11 @@ logmessage "Deleting AIML resources..."
 
 logmessage "Deleting Gradio-UI Components..."
 
-kubectl delete -k /eks-workshop/manifests/modules/aiml/chatbot/gradio --ignore-not-found=true
+kubectl delete -k /eks-workshop/manifests/modules/aiml/chatbot/gradio --ignore-not-found
 
 logmessage "Deleting Llama2 pods..."
 
-kubectl delete -k /eks-workshop/manifests/modules/aiml/chatbot/ray-service-llama2-chatbot --ignore-not-found=true > /dev/null
+kubectl delete -k /eks-workshop/manifests/modules/aiml/chatbot/ray-service-llama2-chatbot --ignore-not-found
 
 logmessage "Deleting Neuron Device Plugin..."
 
@@ -19,7 +19,7 @@ kubectl delete -f https://raw.githubusercontent.com/aws-neuron/aws-neuron-sdk/v2
 
 logmessage "Un-installing kuberay operator..."
 
-helm uninstall kuberay-operator
+helm uninstall kuberay-operator --ignore-not-found
 
 kubectl delete namespace llama2 --ignore-not-found
 
