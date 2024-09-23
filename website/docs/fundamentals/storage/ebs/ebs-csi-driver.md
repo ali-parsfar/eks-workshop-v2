@@ -14,6 +14,9 @@ In order to utilize Amazon EBS volumes with dynamic provisioning on our EKS clus
 To improve security and reduce the amount of work, you can manage the Amazon EBS CSI driver as an Amazon EKS add-on. The IAM role needed by the addon was created for us so we can go ahead and install the addon:
 
 ```bash timeout=300 wait=60
+$ export EKS_CLUSTER_NAME=eks-workshop
+$ eksctl create iamserviceaccount \ --name ebs-csi-controller-sa \ --namespace kube-system \ --cluster $EKS_CLUSTER_NAME \ --role-name AmazonEKS_EBS_CSI_DriverRole \ --role-only \ --attach-policy-arn arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy \ --approve 
+
 $ aws eks create-addon --cluster-name $EKS_CLUSTER_NAME --addon-name aws-ebs-csi-driver \
   --service-account-role-arn $EBS_CSI_ADDON_ROLE \
   --configuration-values '{"defaultStorageClass":{"enabled":true}}'
